@@ -1,6 +1,6 @@
 #**TÄMÄ ON OTSIKKO**#
-Tähän tuli viimeinen muutos. 
-*tämä ei ole *
+* Tähän tuli viimeinen muutos. 
+* tämä ei ole
 Faija sano:
 > mee töihi jonne
 > ja syö lihaa
