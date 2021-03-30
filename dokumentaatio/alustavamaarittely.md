@@ -5,7 +5,7 @@ Sovelluksen avulla käyttäjä voi pitää kirjaa oppinnoistaan. Sovellukseen vo
 Alkuvaiheessa sovelluksella on ainoastaan normaali käyttäjä. Myöhemmin saatan lisätä suuremmilla oikeuksilla varustetun pääkäyttäjän.
 ## Perusversion tarjoama toiminnallisuus
 ### Ennen kirjautumista
-Käyttäjä voi luoda käyttäjän ja kirjautua järjestelmään. 
+* Käyttäjä voi luoda käyttäjän ja kirjautua järjestelmään. 
 ### Kirjautumisen jälkeen
 * Käyttäjä näkee suunnittelemansa kurssit
 * Käyttäjä näkee nykyiset kurssinsa
