@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 
+import laskuri.laskeMain;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import laskuri.ui.ui;
 
 /**
  *
@@ -40,5 +42,7 @@ public class Tests {
     // The methods must be annotated with annotation @Test. For example:
     //
      @Test
-     public void hello() {}
+     public void hello() {
+     laskeMain.main(args);
+     }
 }
