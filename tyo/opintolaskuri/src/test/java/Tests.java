@@ -20,6 +20,7 @@ import laskuri.ui.ui;
 public class Tests {
     
     public Tests() {
+        
     }
     
     @BeforeClass
@@ -43,6 +44,6 @@ public class Tests {
     //
      @Test
      public void hello() {
-     laskeMain.main(args);
+     
      }
 }
