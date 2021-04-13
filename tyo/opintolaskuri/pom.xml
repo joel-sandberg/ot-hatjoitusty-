@@ -12,16 +12,7 @@
     <version>11</version>
 </dependency>
     </dependencies>
-    <plugin>
-    <groupId>org.openjfx</groupId>
-    <artifactId>javafx-maven-plugin</artifactId>
-    <version>0.0.3</version>
-    <configuration>
-        <release>${maven.compiler.release}</release>
-        <launcher>launcher</launcher>
-        <mainClass>opintolaskuri.laskuriMain</mainClass>
-    </configuration>
-</plugin>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
