@@ -12,13 +12,13 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import laskuri.ui.ui;
-
+import laskuri.account;
 /**
  *
  * @author Kuningas
  */
 public class Tests {
-    
+    account test;
     public Tests() {
         
     }
@@ -33,6 +33,9 @@ public class Tests {
     
     @Before
     public void setUp() {
+        String jari = "jari";
+         String password = "password";
+         test = new account(jari, password);
     }
     
     @After
@@ -46,4 +49,66 @@ public class Tests {
      public void hello() {
      
      }
+     @Test
+     public void createAccName() {
+         
+         String out = test.getName();
+         assertEquals("jari", out);
+     }
+     @Test
+     public void createAccPass() {
+         
+         String out = test.getPass();
+         assertEquals("password", out);
+     }
+     @Test
+     public void createAccStartCredit() {
+         
+         int out = test.getCredit();
+         assertEquals(0, out);
+     }
+     @Test
+     public void createAccAddCredit() {
+         
+         test.addCredit(20);
+         int out = test.getCredit();
+         assertEquals(20, out);
+     }
+     @Test
+     public void createAccAddAlotCredit() {
+         for(int i = 0; i <100; i++){
+         test.addCredit(100);
+         }
+         int out = test.getCredit();
+         assertEquals(10000, out);
+     }
+     @Test
+     public void createAccHasBc() {
+         
+         test.addCredit(200);
+         
+         assertEquals(test.hasBc(), true);
+     }
+     @Test
+     public void createAccHasMs() {
+         
+         test.addCredit(400);
+         
+         assertEquals(test.hasMs(), true);
+     }
+     @Test
+     public void createAccHasNotBc() {
+         
+         test.addCredit(100);
+         
+         assertEquals(test.hasBc(), false);
+     }
+     @Test
+     public void createAccHasNotMs() {
+         
+         test.addCredit(100);
+         
+         assertEquals(test.hasMs(), false);
+     }
+     
 }
