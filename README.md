@@ -5,5 +5,6 @@ Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa
 
 * [Alustava määrittely](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/alustavamaarittely.md)
 * [Työaikakirjanpito](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
+* [Arkkitehtuuri](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/arkkitehtuuri.md)
 ## Itse sovellus
 [Studies App](https://github.com/joel-sandberg/ot-hatjoitusty-/tree/master/tyo/opintolaskuri)
