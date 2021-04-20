@@ -7,3 +7,6 @@ Käyttöliittymä sisältää kolme eri näkymää.
 * Kirjautumisnäkymä
 * "Luo käyttäjä"-näkymä
 * Oma sivu (ei vielä toteutettu)
+Käyttöliittymä on tetutettuu laskuri.ui kohtaan. Se käyttää javafx:ää, siinä tarkemmin sceneä. 
+# Sovelluslogiikka
+Sovelluksessa on tällä hetkellä vain luokka account, joka sisältää jokaisen käyttäjän salasanan, nimen ja opintopistemäärän. 
