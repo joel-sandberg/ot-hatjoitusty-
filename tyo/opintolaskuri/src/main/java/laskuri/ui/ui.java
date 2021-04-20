@@ -22,6 +22,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.geometry.Pos;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class ui extends Application {
 VBox texts = new VBox();
 HBox buttons = new HBox();
@@ -72,11 +76,22 @@ Map<String, String> accounts = new HashMap();
         Label untilBc = new Label("Credits until bachelor: " + neededBc);
         Label untilMs = new Label("Credits until masters: " + neededMs);
 
+        TextField newCredit = new TextField();
+        Button addnewCredits = new Button("Add new credit");
         VBox welcomeSet = new VBox();
         welcomeSet.setPrefSize(300, 180);
-        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs);
+        
+        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, newCredit, addnewCredits);
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
+         addnewCredits.setOnAction((event) -> {
+             
+            int add = Integer.parseInt(newCredit.getText());
+            credits.setText("Your current credits: " + (creditScore + add));
+            untilBc.setText("Credits until bachelor: " + (neededBc - add));
+            untilMs.setText("Credits until masters: " + (neededMs - add));
+        });
+        
         Scene loggedInWindow = new Scene(welcomeSet);
         window.setScene(loggedInWindow);
     }
@@ -128,4 +143,5 @@ Map<String, String> accounts = new HashMap();
 
         window.show();
     }
+
 }
