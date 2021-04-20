@@ -21,7 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.geometry.Pos;
-
+import laskuri.account;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -58,7 +58,9 @@ Map<String, String> accounts = new HashMap();
         newaccbuttons.getChildren().add(create);
         
         create.setOnAction((event)-> {
-        accounts.put(newName.getText(), newpWord.getText());
+            
+        account newAcc = new account(newName.getText(), newpWord.getText());
+        
         login(window);
     });
         
