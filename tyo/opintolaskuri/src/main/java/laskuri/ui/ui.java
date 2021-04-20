@@ -23,31 +23,19 @@ import javafx.scene.control.PasswordField;
 import javafx.geometry.Pos;
 
 public class ui extends Application {
-
+VBox texts = new VBox();
+HBox buttons = new HBox();
+Map<String, String> accounts = new HashMap();
     @Override
     public void start(Stage window) {
-        window.setTitle("Studies");
-//luodaan alkuikkunan asetukset
-        BorderPane set = new BorderPane();
+        login(window);
+    }
 
-        VBox texts = new VBox();
-        texts.setSpacing(20);
-        TextField logName = new TextField();
-        PasswordField pWord = new PasswordField();
-        Label header = new Label("Study Calculator pro 3000");
-        Label askPWord = new Label("Password");
-        Label askLogin = new Label("Log in");
-        Label erText = new Label("");
-        texts.getChildren().addAll(header, askLogin, logName, askPWord, pWord, erText);
-
-        HBox buttons = new HBox();
-        buttons.setSpacing(20);
-        Button logIn = new Button("Log in");
-        Button createAcc = new Button("Create a new account");
-        buttons.getChildren().add(logIn);
-        buttons.getChildren().add(createAcc);
-
-//luodaan uuskäyttäjäikkuna
+    public static void main(String[] args) {
+        launch(ui.class);
+    }
+    
+    public void crtAcc(Stage window) {
         BorderPane createnewAcc = new BorderPane();
 
         VBox cAcTexts = new VBox();
@@ -62,20 +50,59 @@ public class ui extends Application {
 
         HBox newaccbuttons = new HBox();
         buttons.setSpacing(20);
+        Button create = new Button("Create");
+        newaccbuttons.getChildren().add(create);
         
-        newaccbuttons.getChildren().add(new Button("Create"));
+        create.setOnAction((event)-> {
+        accounts.put(newName.getText(), newpWord.getText());
+        login(window);
+    });
+        
         createnewAcc.setCenter(cAcTexts);
         createnewAcc.setBottom(newaccbuttons);
         Scene createAccWindow = new Scene(createnewAcc);
-//luodaan tervetuloaikkuna
+        window.setScene(createAccWindow);
+    }
+    public void welcome(Stage window) {
         Label welcomeText = new Label("Welcome!");
+        int creditScore = 0;
+        int neededBc = 180 - creditScore;
+        int neededMs = 360 - creditScore;
+        Label credits = new Label("Your current credits: " + creditScore);
+        Label untilBc = new Label("Credits until bachelor: " + neededBc);
+        Label untilMs = new Label("Credits until masters: " + neededMs);
 
-        StackPane welcomeSet = new StackPane();
+        VBox welcomeSet = new VBox();
         welcomeSet.setPrefSize(300, 180);
-        welcomeSet.getChildren().add(welcomeText);
-        welcomeSet.setAlignment(Pos.CENTER);
+        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs);
+        welcomeSet.setAlignment(Pos.TOP_CENTER);
 
         Scene loggedInWindow = new Scene(welcomeSet);
+        window.setScene(loggedInWindow);
+    }
+    public void login(Stage window) {
+        window.setTitle("Studies");
+//luodaan alkuikkunan asetukset
+        BorderPane set = new BorderPane();
+
+        
+        texts.setSpacing(20);
+        TextField logName = new TextField();
+        PasswordField pWord = new PasswordField();
+        Label header = new Label("Study Calculator pro 3000");
+        Label askPWord = new Label("Password");
+        Label askLogin = new Label("Log in");
+        Label erText = new Label("");
+        texts.getChildren().addAll(header, askLogin, logName, askPWord, pWord, erText);
+
+        
+        buttons.setSpacing(20);
+        Button logIn = new Button("Log in");
+        Button createAcc = new Button("Create a new account");
+        buttons.getChildren().add(logIn);
+        buttons.getChildren().add(createAcc);
+
+        
 //laitetaan nappi skulaa
         logIn.setOnAction((event) -> {
             if (!logName.getText().trim().equals("admin")) {
@@ -86,12 +113,12 @@ public class ui extends Application {
                 erText.setText("Unknown password.");
                 return;
             }
-            window.setScene(loggedInWindow);
+            welcome(window);
         });
 //laitetaa toka nappi skulaa
         createAcc.setOnAction((event) -> {
             
-            window.setScene(createAccWindow);
+            crtAcc(window);
         });
 //roska käyntiin
         set.setCenter(texts);
@@ -100,9 +127,5 @@ public class ui extends Application {
         window.setScene(start);
 
         window.show();
-    }
-
-    public static void main(String[] args) {
-        launch(ui.class);
     }
 }
