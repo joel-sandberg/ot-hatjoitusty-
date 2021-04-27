@@ -1,5 +1,5 @@
 # Studies App
-Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa on tarkoitus voida olla usempi käyttäjä. Tällä hetkellä ainoa toimiva käyttäjänimi on admin ja salasana 123, uusia käyttäjiä voi nyt luoda, mutta niillä ei voi kirjautua sisään. 
+Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa on tarkoitus voida olla usempi käyttäjä. Tällä hetkellä ainoa toimiva käyttäjänimi on admin ja salasana 123, uusia käyttäjiä voi nyt luoda ja uuden käyttäjän luominen vie suoraan ikkunaan jossa olet kirjautuneena sisään kyseisenä käyttäjänä. 
 
 ## Dokumentaatio
 
