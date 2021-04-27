@@ -61,7 +61,7 @@ account acc;
             
         account newAcc = new account(newName.getText(), newpWord.getText());
         
-        start(window);
+        welcome(window, newAcc);
     });
         
         createnewAcc.setCenter(cAcTexts);
@@ -70,7 +70,7 @@ account acc;
         window.setScene(createAccWindow);
     }
     public void welcome(Stage window, account acc) {
-        Label welcomeText = new Label("Welcome!");
+        Label welcomeText = new Label("Welcome, " + acc.getName() + "!");
         
         Label credits = new Label("Your current credits: " + acc.getCredit());
         Label untilBc = new Label("Credits until bachelor: " + (180 - acc.getCredit()));
@@ -99,8 +99,8 @@ account acc;
             untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
             untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
             
-            compC.setText(compC.getText() + " " + text);
-            compC.setPrefWidth(150);
+            compC.setText(compC.getText() + " " + text + ", " + add + " credits;");
+            compC.setPrefWidth(250);
             compC.setWrapText(true);
         });
         
