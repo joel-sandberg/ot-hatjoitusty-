@@ -7,4 +7,4 @@
 |20.4.|2h|lisäilin testejä|
 |27.4.|5h|lisäilin toiminnallisuuksia|
 |27.4.|3h|yritin taistella javan versioiden ja .jarin kanssa|
-|Yht.|25h|Yht.|
+|Yht.|25h| |
