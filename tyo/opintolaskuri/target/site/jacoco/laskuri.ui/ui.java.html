@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ui.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">opintolaskuri</a> &gt; <a href="index.source.html" class="el_package">laskuri.ui</a> &gt; <span class="el_source">ui.java</span></div><h1>ui.java</h1><pre class="source lang-java linenums">/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package laskuri.ui;
+
+import java.io.*;
+import java.util.*;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.stage.*;
+import javafx.scene.layout.StackPane;
+import javafx.scene.*;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+import javafx.geometry.Pos;
+import laskuri.account;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+<span class="nc" id="L29">public class ui extends Application {</span>
+<span class="nc" id="L30">VBox texts = new VBox();</span>
+<span class="nc" id="L31">HBox buttons = new HBox();</span>
+<span class="nc" id="L32">Map&lt;String, String&gt; accounts = new HashMap();</span>
+    @Override
+    public void start(Stage window) {
+<span class="nc" id="L35">        login(window);</span>
+<span class="nc" id="L36">    }</span>
+
+    public static void main(String[] args) {
+<span class="nc" id="L39">        launch(ui.class);</span>
+<span class="nc" id="L40">    }</span>
+    
+    public void crtAcc(Stage window) {
+<span class="nc" id="L43">        BorderPane createnewAcc = new BorderPane();</span>
+
+<span class="nc" id="L45">        VBox cAcTexts = new VBox();</span>
+<span class="nc" id="L46">        cAcTexts.setSpacing(20);</span>
+<span class="nc" id="L47">        TextField newName = new TextField();</span>
+<span class="nc" id="L48">        PasswordField newpWord = new PasswordField();</span>
+<span class="nc" id="L49">        Label nAheader = new Label(&quot;Creating an account&quot;);</span>
+<span class="nc" id="L50">        Label asknewPWord = new Label(&quot;Type your password&quot;);</span>
+<span class="nc" id="L51">        Label asknewLogin = new Label(&quot;Type your log in name&quot;);</span>
+       
+<span class="nc" id="L53">        cAcTexts.getChildren().addAll(nAheader, asknewLogin, newName, asknewPWord, newpWord);</span>
+
+<span class="nc" id="L55">        HBox newaccbuttons = new HBox();</span>
+<span class="nc" id="L56">        buttons.setSpacing(20);</span>
+<span class="nc" id="L57">        Button create = new Button(&quot;Create&quot;);</span>
+<span class="nc" id="L58">        newaccbuttons.getChildren().add(create);</span>
+        
+<span class="nc" id="L60">        create.setOnAction((event)-&gt; {</span>
+            
+<span class="nc" id="L62">        account newAcc = new account(newName.getText(), newpWord.getText());</span>
+        
+<span class="nc" id="L64">        login(window);</span>
+<span class="nc" id="L65">    });</span>
+        
+<span class="nc" id="L67">        createnewAcc.setCenter(cAcTexts);</span>
+<span class="nc" id="L68">        createnewAcc.setBottom(newaccbuttons);</span>
+<span class="nc" id="L69">        Scene createAccWindow = new Scene(createnewAcc);</span>
+<span class="nc" id="L70">        window.setScene(createAccWindow);</span>
+<span class="nc" id="L71">    }</span>
+    public void welcome(Stage window) {
+<span class="nc" id="L73">        Label welcomeText = new Label(&quot;Welcome!&quot;);</span>
+<span class="nc" id="L74">        int creditScore = 0;</span>
+<span class="nc" id="L75">        int neededBc = 180 - creditScore;</span>
+<span class="nc" id="L76">        int neededMs = 360 - creditScore;</span>
+<span class="nc" id="L77">        Label credits = new Label(&quot;Your current credits: &quot; + creditScore);</span>
+<span class="nc" id="L78">        Label untilBc = new Label(&quot;Credits until bachelor: &quot; + neededBc);</span>
+<span class="nc" id="L79">        Label untilMs = new Label(&quot;Credits until masters: &quot; + neededMs);</span>
+
+<span class="nc" id="L81">        TextField newCredit = new TextField();</span>
+<span class="nc" id="L82">        Button addnewCredits = new Button(&quot;Add new credit&quot;);</span>
+<span class="nc" id="L83">        VBox welcomeSet = new VBox();</span>
+<span class="nc" id="L84">        welcomeSet.setPrefSize(300, 180);</span>
+        
+<span class="nc" id="L86">        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, newCredit, addnewCredits);</span>
+<span class="nc" id="L87">        welcomeSet.setAlignment(Pos.TOP_CENTER);</span>
+
+<span class="nc" id="L89">         addnewCredits.setOnAction((event) -&gt; {</span>
+             
+<span class="nc" id="L91">            int add = Integer.parseInt(newCredit.getText());</span>
+<span class="nc" id="L92">            credits.setText(&quot;Your current credits: &quot; + (creditScore + add));</span>
+<span class="nc" id="L93">            untilBc.setText(&quot;Credits until bachelor: &quot; + (neededBc - add));</span>
+<span class="nc" id="L94">            untilMs.setText(&quot;Credits until masters: &quot; + (neededMs - add));</span>
+<span class="nc" id="L95">        });</span>
+        
+<span class="nc" id="L97">        Scene loggedInWindow = new Scene(welcomeSet);</span>
+<span class="nc" id="L98">        window.setScene(loggedInWindow);</span>
+<span class="nc" id="L99">    }</span>
+    public void login(Stage window) {
+<span class="nc" id="L101">        window.setTitle(&quot;Studies&quot;);</span>
+//luodaan alkuikkunan asetukset
+<span class="nc" id="L103">        BorderPane set = new BorderPane();</span>
+
+        
+<span class="nc" id="L106">        texts.setSpacing(20);</span>
+<span class="nc" id="L107">        TextField logName = new TextField();</span>
+<span class="nc" id="L108">        PasswordField pWord = new PasswordField();</span>
+<span class="nc" id="L109">        Label header = new Label(&quot;Study Calculator pro 3000&quot;);</span>
+<span class="nc" id="L110">        Label askPWord = new Label(&quot;Password&quot;);</span>
+<span class="nc" id="L111">        Label askLogin = new Label(&quot;Log in&quot;);</span>
+<span class="nc" id="L112">        Label erText = new Label(&quot;&quot;);</span>
+<span class="nc" id="L113">        texts.getChildren().addAll(header, askLogin, logName, askPWord, pWord, erText);</span>
+
+        
+<span class="nc" id="L116">        buttons.setSpacing(20);</span>
+<span class="nc" id="L117">        Button logIn = new Button(&quot;Log in&quot;);</span>
+<span class="nc" id="L118">        Button createAcc = new Button(&quot;Create a new account&quot;);</span>
+<span class="nc" id="L119">        buttons.getChildren().add(logIn);</span>
+<span class="nc" id="L120">        buttons.getChildren().add(createAcc);</span>
+
+        
+//laitetaan nappi skulaa
+<span class="nc" id="L124">        logIn.setOnAction((event) -&gt; {</span>
+<span class="nc bnc" id="L125" title="All 2 branches missed.">            if (!logName.getText().trim().equals(&quot;admin&quot;)) {</span>
+<span class="nc" id="L126">                erText.setText(&quot;This account does not exist.&quot;);</span>
+<span class="nc" id="L127">                return;</span>
+            }
+<span class="nc bnc" id="L129" title="All 2 branches missed.">            if (!pWord.getText().trim().equals(&quot;123&quot;)) {</span>
+<span class="nc" id="L130">                erText.setText(&quot;Unknown password.&quot;);</span>
+<span class="nc" id="L131">                return;</span>
+            }
+<span class="nc" id="L133">            welcome(window);</span>
+<span class="nc" id="L134">        });</span>
+//laitetaa toka nappi skulaa
+<span class="nc" id="L136">        createAcc.setOnAction((event) -&gt; {</span>
+            
+<span class="nc" id="L138">            crtAcc(window);</span>
+<span class="nc" id="L139">        });</span>
+//roska käyntiin
+<span class="nc" id="L141">        set.setCenter(texts);</span>
+<span class="nc" id="L142">        set.setBottom(buttons);</span>
+<span class="nc" id="L143">        Scene start = new Scene(set);</span>
+<span class="nc" id="L144">        window.setScene(start);</span>
+
+<span class="nc" id="L146">        window.show();</span>
+<span class="nc" id="L147">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
