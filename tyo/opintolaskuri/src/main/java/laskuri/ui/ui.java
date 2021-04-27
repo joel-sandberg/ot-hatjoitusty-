@@ -85,10 +85,11 @@ account acc;
         Label comp = new Label("Courses you have completed:");
         Label compC = new Label("");
         Label avg = new Label("Current average grade: " + acc.getAvr());
+        Button logout = new Button("Log out");
         VBox welcomeSet = new VBox();
         welcomeSet.setPrefSize(300, 180);
         
-        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, askG, grade, nCoamount, newCredit, addnewCredits, avg, comp, compC);
+        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, askG, grade, nCoamount, newCredit, addnewCredits, avg, comp, compC, logout);
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((event) -> {
@@ -108,6 +109,9 @@ account acc;
             compC.setPrefWidth(250);
             compC.setWrapText(true);
         });
+         logout.setOnAction((event) -> {
+        System.exit(0);
+    });
         
         Scene loggedInWindow = new Scene(welcomeSet);
         window.setScene(loggedInWindow);
