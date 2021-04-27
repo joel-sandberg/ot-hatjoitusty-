@@ -8,3 +8,5 @@ Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa
 * [Arkkitehtuuri](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/arkkitehtuuri.md)
 ## Itse sovellus
 [Studies App](https://github.com/joel-sandberg/ot-hatjoitusty-/tree/master/tyo/opintolaskuri)
+## Viikon 5 release
+[Release](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/viikko5)
