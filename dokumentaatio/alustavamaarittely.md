@@ -12,7 +12,7 @@ Alkuvaiheessa sovelluksella on ainoastaan normaali käyttäjä. Myöhemmin saata
 - [x] Käyttäjä näkee opintopistemääränsä
 - [x] Käyttäjä näkee suorittamansa kurssit
 - [ ] Käyttäjä voi kirjautua ulos
-- [ ] Käyttäjä näkee keskiarvonsa
+- [x] Käyttäjä näkee keskiarvonsa
 ## Jatkokehitysideoita
 - [ ] Piirakkachart mistä näkee prosentuaalisesti opintojen vaiheen
 - [ ] Sovellus myydään Microsoftille
