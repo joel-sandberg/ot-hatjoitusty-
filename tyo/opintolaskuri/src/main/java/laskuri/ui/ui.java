@@ -12,7 +12,7 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.stage.*;
-import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.scene.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -61,7 +61,7 @@ account acc;
             
         account newAcc = new account(newName.getText(), newpWord.getText());
         
-        login(window);
+        start(window);
     });
         
         createnewAcc.setCenter(cAcTexts);
@@ -75,23 +75,33 @@ account acc;
         Label credits = new Label("Your current credits: " + acc.getCredit());
         Label untilBc = new Label("Credits until bachelor: " + (180 - acc.getCredit()));
         Label untilMs = new Label("Credits until masters: " + (360 - acc.getCredit()));
-
+        Label nConame = new Label("Name of completed course:");
+        TextField newCourse = new TextField();
+        Label nCoamount = new Label("Amount of credits for completed course:");
         TextField newCredit = new TextField();
-        Button addnewCredits = new Button("Add new credit");
+        Button addnewCredits = new Button("Add completed course");
+        Label comp = new Label("Courses you have completed:");
+        Label compC = new Label("");
         VBox welcomeSet = new VBox();
         welcomeSet.setPrefSize(300, 180);
         
-        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, newCredit, addnewCredits);
+        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, nCoamount, newCredit, addnewCredits, comp, compC);
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((event) -> {
              
             int add = Integer.parseInt(newCredit.getText());
             acc.addCredit(add);
+            String text = newCourse.getText();
             newCredit.setText("");
+            newCourse.setText("");
             credits.setText("Your current credits: " + acc.getCredit());
             untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
             untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
+            
+            compC.setText(compC.getText() + " " + text);
+            compC.setPrefWidth(150);
+            compC.setWrapText(true);
         });
         
         Scene loggedInWindow = new Scene(welcomeSet);
