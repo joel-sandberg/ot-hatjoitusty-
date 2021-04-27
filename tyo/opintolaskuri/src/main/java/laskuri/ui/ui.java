@@ -75,31 +75,36 @@ account acc;
         Label credits = new Label("Your current credits: " + acc.getCredit());
         Label untilBc = new Label("Credits until bachelor: " + (180 - acc.getCredit()));
         Label untilMs = new Label("Credits until masters: " + (360 - acc.getCredit()));
-        Label nConame = new Label("Name of completed course:");
+        Label nConame = new Label("Name of completed course :");
         TextField newCourse = new TextField();
-        Label nCoamount = new Label("Amount of credits for completed course:");
+        Label askG = new Label("Grade for completed course: ");
+        TextField grade = new TextField();
+        Label nCoamount = new Label("Amount of credits for completed course: ");
         TextField newCredit = new TextField();
         Button addnewCredits = new Button("Add completed course");
         Label comp = new Label("Courses you have completed:");
         Label compC = new Label("");
+        Label avg = new Label("Current average grade: " + acc.getAvr());
         VBox welcomeSet = new VBox();
         welcomeSet.setPrefSize(300, 180);
         
-        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, nCoamount, newCredit, addnewCredits, comp, compC);
+        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, askG, grade, nCoamount, newCredit, addnewCredits, avg, comp, compC);
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((event) -> {
              
             int add = Integer.parseInt(newCredit.getText());
-            acc.addCredit(add);
+            int addG = Integer.parseInt(grade.getText());
+            acc.addCredit(add, addG);
             String text = newCourse.getText();
+            grade.setText("");
             newCredit.setText("");
             newCourse.setText("");
             credits.setText("Your current credits: " + acc.getCredit());
             untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
             untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
-            
-            compC.setText(compC.getText() + " " + text + ", " + add + " credits;");
+            avg.setText(("Current average grade: " + acc.getAvr()));
+            compC.setText(compC.getText() + " " + text + ", " + add + " credits, grade: " + addG + ";");
             compC.setPrefWidth(250);
             compC.setWrapText(true);
         });

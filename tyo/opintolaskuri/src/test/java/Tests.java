@@ -70,14 +70,14 @@ public class Tests {
      @Test
      public void createAccAddCredit() {
          
-         test.addCredit(20);
+         test.addCredit(20, 1);
          int out = test.getCredit();
          assertEquals(20, out);
      }
      @Test
      public void createAccAddAlotCredit() {
          for(int i = 0; i <100; i++){
-         test.addCredit(100);
+         test.addCredit(100, 1);
          }
          int out = test.getCredit();
          assertEquals(10000, out);
@@ -85,28 +85,28 @@ public class Tests {
      @Test
      public void createAccHasBc() {
          
-         test.addCredit(200);
+         test.addCredit(200, 1);
          
          assertEquals(test.hasBc(), true);
      }
      @Test
      public void createAccHasMs() {
          
-         test.addCredit(400);
+         test.addCredit(400, 1);
          
          assertEquals(test.hasMs(), true);
      }
      @Test
      public void createAccHasNotBc() {
          
-         test.addCredit(100);
+         test.addCredit(100, 1);
          
          assertEquals(test.hasBc(), false);
      }
      @Test
      public void createAccHasNotMs() {
          
-         test.addCredit(100);
+         test.addCredit(100, 1);
          
          assertEquals(test.hasMs(), false);
      }
