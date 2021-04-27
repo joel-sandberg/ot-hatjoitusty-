@@ -29,7 +29,7 @@ import java.util.regex.Pattern;
 public class ui extends Application {
 VBox texts = new VBox();
 HBox buttons = new HBox();
-Map<String, String> accounts = new HashMap();
+account acc;
     @Override
     public void start(Stage window) {
         login(window);
@@ -69,14 +69,12 @@ Map<String, String> accounts = new HashMap();
         Scene createAccWindow = new Scene(createnewAcc);
         window.setScene(createAccWindow);
     }
-    public void welcome(Stage window) {
+    public void welcome(Stage window, account acc) {
         Label welcomeText = new Label("Welcome!");
-        int creditScore = 0;
-        int neededBc = 180 - creditScore;
-        int neededMs = 360 - creditScore;
-        Label credits = new Label("Your current credits: " + creditScore);
-        Label untilBc = new Label("Credits until bachelor: " + neededBc);
-        Label untilMs = new Label("Credits until masters: " + neededMs);
+        
+        Label credits = new Label("Your current credits: " + acc.getCredit());
+        Label untilBc = new Label("Credits until bachelor: " + (180 - acc.getCredit()));
+        Label untilMs = new Label("Credits until masters: " + (360 - acc.getCredit()));
 
         TextField newCredit = new TextField();
         Button addnewCredits = new Button("Add new credit");
@@ -89,9 +87,11 @@ Map<String, String> accounts = new HashMap();
          addnewCredits.setOnAction((event) -> {
              
             int add = Integer.parseInt(newCredit.getText());
-            credits.setText("Your current credits: " + (creditScore + add));
-            untilBc.setText("Credits until bachelor: " + (neededBc - add));
-            untilMs.setText("Credits until masters: " + (neededMs - add));
+            acc.addCredit(add);
+            newCredit.setText("");
+            credits.setText("Your current credits: " + acc.getCredit());
+            untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
+            untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
         });
         
         Scene loggedInWindow = new Scene(welcomeSet);
@@ -122,6 +122,7 @@ Map<String, String> accounts = new HashMap();
         
 //laitetaan nappi skulaa
         logIn.setOnAction((event) -> {
+            this.acc = new account(logName.getText(), pWord.getText());
             if (!logName.getText().trim().equals("admin")) {
                 erText.setText("This account does not exist.");
                 return;
@@ -130,7 +131,7 @@ Map<String, String> accounts = new HashMap();
                 erText.setText("Unknown password.");
                 return;
             }
-            welcome(window);
+            welcome(window, this.acc);
         });
 //laitetaa toka nappi skulaa
         createAcc.setOnAction((event) -> {
