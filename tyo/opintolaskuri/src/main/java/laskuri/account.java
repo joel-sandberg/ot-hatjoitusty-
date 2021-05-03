@@ -15,12 +15,22 @@ public class account {
     private String password;
     private int amount;
     private double graTot;
+    private double avr;
+    public account(String name, String password, int credit, int avr) {
+        this.name = name;
+        this.password = password;
+        this.credit = credit;
+        this.amount = 0;
+        this.graTot = 0;
+        this.avr = avr;
+    }
     public account(String name, String password) {
         this.name = name;
         this.password = password;
         this.credit = 0;
         this.amount = 0;
         this.graTot = 0;
+        this.avr = getAvr();
     }
     public void addCredit(int add, int grade) {
         this.credit += add;
@@ -54,4 +64,5 @@ public class account {
         }
         return false;
     }
+    
 }

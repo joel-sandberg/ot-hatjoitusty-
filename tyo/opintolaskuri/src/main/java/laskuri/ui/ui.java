@@ -7,7 +7,7 @@ package laskuri.ui;
 
 import java.io.*;
 import java.util.*;
-
+import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -24,14 +24,28 @@ import javafx.geometry.Pos;
 import laskuri.account;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
+import laskuri.Service;
+import dao.FileAccountDao;
+import java.util.Properties;
 
 public class ui extends Application {
 VBox texts = new VBox();
 HBox buttons = new HBox();
 account acc;
+private Service serv;
+
+ @Override
+    public void init() throws Exception {
+        Properties properties = new Properties();
+
+        properties.load(new FileInputStream("config.properties"));
+        String accFile = properties.getProperty("accFile");
+        FileAccountDao accDao = new FileAccountDao(accFile);
+        serv = new Service(accDao);
+    }
     @Override
-    public void start(Stage window) {
+    public void start(Stage window)  {
+        
         login(window);
     }
 
@@ -58,10 +72,16 @@ account acc;
         newaccbuttons.getChildren().add(create);
         
         create.setOnAction((event)-> {
+            String name = newName.getText();
+            String pass = newpWord.getText();
+            if (name.length() < 3 | pass.length() < 3) {
+                nAheader.setText("Name or password not acceptable");
+            } else if (serv.crtAccount(name, pass)) {
             
-        account newAcc = new account(newName.getText(), newpWord.getText());
+            welcome(window, new account(name, pass));
+            }
+            
         
-        welcome(window, newAcc);
     });
         
         createnewAcc.setCenter(cAcTexts);
@@ -110,7 +130,10 @@ account acc;
             compC.setWrapText(true);
         });
          logout.setOnAction((event) -> {
+        serv.logout();
+            
         System.exit(0);
+        
     });
         
         Scene loggedInWindow = new Scene(welcomeSet);
@@ -141,16 +164,18 @@ account acc;
         
 //laitetaan nappi skulaa
         logIn.setOnAction((event) -> {
-            this.acc = new account(logName.getText(), pWord.getText());
-            if (!logName.getText().trim().equals("admin")) {
+            
+            if (2>3) {
                 erText.setText("This account does not exist.");
                 return;
             }
-            if (!pWord.getText().trim().equals("123")) {
+            if (askLogin.getText() == null) {
                 erText.setText("Unknown password.");
                 return;
             }
-            welcome(window, this.acc);
+            if (serv.login(askLogin.getText())) {
+            welcome(window, serv.getLoggedAcc());
+            }
         });
 //laitetaa toka nappi skulaa
         createAcc.setOnAction((event) -> {
