@@ -7,4 +7,7 @@
 |20.4.|2h|lisäilin testejä|
 |27.4.|5h|lisäilin toiminnallisuuksia|
 |27.4.|3h|yritin taistella javan versioiden ja .jarin kanssa|
-|Yht.|25h| |
+|3.5.|6h|yritin saada tallennuksen toimimaan|
+|4.5.|4h|laitoin tallennuksen toimimaan|
+|4.5.|4h|ui:n muokkailua ja kirjanpitelyä|
+|Yht.|39h| |
