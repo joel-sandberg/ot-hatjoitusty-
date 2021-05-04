@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 
+import dao.FileAccountDao;
+import java.io.FileInputStream;
+import java.util.Properties;
+import laskuri.Service;
 import laskuri.laskeMain;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -19,6 +23,7 @@ import laskuri.account;
  */
 public class Tests {
     account test;
+    private Service serv;
     public Tests() {
         
     }
@@ -33,6 +38,7 @@ public class Tests {
     
     @Before
     public void setUp() {
+        
         String jari = "jari";
          String password = "password";
          test = new account(jari, password);
