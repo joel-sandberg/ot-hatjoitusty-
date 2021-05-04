@@ -11,6 +11,9 @@ Käyttöliittymä on totutettuu laskuri.ui kohtaan. Se käyttää javafx:ää, s
 ## Sovelluslogiikka
 Sovelluksen loogisen datamallin tällä hetkellä muodostaa luokka account, joka sisältää jokaisen käyttäjän salasanan, nimen, opintopistemäärän, sekä opintojen keskiarvon. 
 
+![image](https://user-images.githubusercontent.com/62245568/117037334-07afab80-ad0f-11eb-8bb4-9a8f60c1444d.png)
+
+
 Toiminnallisuutta tuo luokka Service. Luokka tuo erilaisia metodeja kuten sisään- ja uloskirjautumisen. 
 
 ## Tietojen pysyväistallennus
