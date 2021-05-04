@@ -1,7 +1,7 @@
 # Arkkitehtuurikuvaus
 ## Rakenne
 Ohjelman rakenne on monitasoista ja pakkausrakenne seuraavanlaista:
-![image](https://user-images.githubusercontent.com/62245568/117036612-45600480-ad0e-11eb-85e8-934249cc9869.png)
+![image](https://user-images.githubusercontent.com/62245568/117036762-76403980-ad0e-11eb-8c7d-4f9b6f9aed8b.png)
 
 Käyttöliittymä sisältää kolme eri näkymää.
 * Kirjautumisnäkymä
