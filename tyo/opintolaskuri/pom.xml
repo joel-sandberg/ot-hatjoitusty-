@@ -18,7 +18,7 @@
     <scope>test</scope>
 </dependency>
     </dependencies>
-    <build>
+    <build>gi
   <plugins>
        <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
