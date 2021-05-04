@@ -15,11 +15,11 @@ import laskuri.account;
  * @author Kuningas
  */
 public class FileAccountDao implements AccountDao {
-    private List<account> accounts;
+    private ArrayList<account> accounts;
     private String file;
     
     public FileAccountDao(String file) throws Exception {
-        accounts = new ArrayList<>();
+        this.accounts = new ArrayList<>();
         this.file = file;
         try {
             Scanner r = new Scanner(new File(file));
@@ -42,7 +42,7 @@ public class FileAccountDao implements AccountDao {
         }
     }
     @Override
-    public List<account> getAll() {
+    public ArrayList<account> getAll() {
         return accounts;
     }
     @Override
@@ -59,19 +59,26 @@ public class FileAccountDao implements AccountDao {
         save();
         return acc;
     }  
-    public void update(account acc) throws Exception {
-        try {
-            Scanner r = new Scanner(new File(this.file));
-            while (r.hasNextLine()) {
-                String[] p = r.nextLine().split(";");
-                int i = 0;
-                if (p[i].equals(acc.getName())) {
-                    
-                }
-            }
-            } catch (Exception e) {
-            FileWriter w = new FileWriter(new File(this.file));
-            w.close();
+    @Override
+    public void synToFile(ArrayList<account> accList) throws Exception {
+        if (accList == null) {
+            return;
         }
+      save();
     }
-}
+    
+    
+    @Override
+    public account update(account acc) throws Exception {
+        for (account a : accounts) {
+            if(a.getName().equals(acc.getName())) {
+                a.addCredit(acc.getCredit(), acc.getAvr());
+            }
+        }
+        
+        save();
+        
+        return acc;
+        } 
+    }
+

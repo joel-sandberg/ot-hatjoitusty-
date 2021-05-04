@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package dao;
+import java.util.ArrayList;
 import java.util.List;
 import laskuri.account;
 /**
@@ -13,5 +14,7 @@ import laskuri.account;
 public interface AccountDao {
     account make(account acc) throws Exception;
     account findName(String name);
-    List<account> getAll();
+    ArrayList<account> getAll();
+    account update(account acc) throws Exception;
+    void synToFile(ArrayList<account> accList)throws Exception;
 }

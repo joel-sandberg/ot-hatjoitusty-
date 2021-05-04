@@ -33,8 +33,12 @@ public class Service {
         return logged;
     }
     public void logout() {
-        
-        logged = null;
+        try {
+            dao.synToFile(dao.getAll());
+            logged = null;
+        } catch (Exception ex) {
+            logged = null;
+        }
     }
     public boolean crtAccount(String name, String pass) {
         if (dao.findName(name) != null) {

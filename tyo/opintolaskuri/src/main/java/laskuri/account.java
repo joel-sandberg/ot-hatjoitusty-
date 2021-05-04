@@ -32,7 +32,7 @@ public class account {
         this.graTot = 0;
         this.avr = getAvr();
     }
-    public void addCredit(int add, int grade) {
+    public void addCredit(int add, double grade) {
         this.credit += add;
         this.amount++;
         this.graTot += grade;

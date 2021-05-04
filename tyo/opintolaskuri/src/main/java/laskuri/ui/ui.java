@@ -33,6 +33,9 @@ VBox texts = new VBox();
 HBox buttons = new HBox();
 account acc;
 private Service serv;
+private Scene logged;
+private Scene login;
+private Scene newA;
 
  @Override
     public void init() throws Exception {
@@ -46,14 +49,38 @@ private Service serv;
     @Override
     public void start(Stage window)  {
         
-        login(window);
-    }
+        window.setTitle("Studies");
+//luodaan alkuikkunan asetukset
+        BorderPane set = new BorderPane();
 
-    public static void main(String[] args) {
-        launch(ui.class);
-    }
-    
-    public void crtAcc(Stage window) {
+        
+        texts.setSpacing(20);
+        TextField logName = new TextField();
+        PasswordField pWord = new PasswordField();
+        Label header = new Label("Study Calculator pro 3000");
+        Label askPWord = new Label("Password");
+        Label askLogin = new Label("Log in");
+        Label erText = new Label("");
+        texts.getChildren().addAll(header, askLogin, logName, askPWord, pWord, erText);
+
+        
+        buttons.setSpacing(20);
+        Button logIn = new Button("Log in");
+        Button createAcc = new Button("Create a new account");
+        buttons.getChildren().add(logIn);
+        buttons.getChildren().add(createAcc);
+
+        
+
+//roska käyntiin
+        set.setCenter(texts);
+        set.setBottom(buttons);
+        login = new Scene(set);
+        window.setScene(login);
+
+        window.show();
+        
+        //crtAcc
         BorderPane createnewAcc = new BorderPane();
 
         VBox cAcTexts = new VBox();
@@ -77,19 +104,10 @@ private Service serv;
             if (name.length() < 3 | pass.length() < 3) {
                 nAheader.setText("Name or password not acceptable");
             } else if (serv.crtAccount(name, pass)) {
-            
-            welcome(window, new account(name, pass));
-            }
-            
-        
-    });
-        
-        createnewAcc.setCenter(cAcTexts);
-        createnewAcc.setBottom(newaccbuttons);
-        Scene createAccWindow = new Scene(createnewAcc);
-        window.setScene(createAccWindow);
-    }
-    public void welcome(Stage window, account acc) {
+                
+            serv.login(name);
+            this.acc = serv.getLoggedAcc();
+            if (this.acc != null) {
         Label welcomeText = new Label("Welcome, " + acc.getName() + "!");
         
         Label credits = new Label("Your current credits: " + acc.getCredit());
@@ -112,7 +130,7 @@ private Service serv;
         welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, askG, grade, nCoamount, newCredit, addnewCredits, avg, comp, compC, logout);
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
-         addnewCredits.setOnAction((event) -> {
+         addnewCredits.setOnAction((e) -> {
              
             int add = Integer.parseInt(newCredit.getText());
             int addG = Integer.parseInt(grade.getText());
@@ -129,40 +147,27 @@ private Service serv;
             compC.setPrefWidth(250);
             compC.setWrapText(true);
         });
-         logout.setOnAction((event) -> {
+         logout.setOnAction((s) -> {
         serv.logout();
-            
-        System.exit(0);
+        window.setScene(login);
+        
         
     });
         
-        Scene loggedInWindow = new Scene(welcomeSet);
-        window.setScene(loggedInWindow);
-    }
-    public void login(Stage window) {
-        window.setTitle("Studies");
-//luodaan alkuikkunan asetukset
-        BorderPane set = new BorderPane();
-
+        logged = new Scene(welcomeSet);
+        }
+            window.setScene(logged);
+            }
+            
         
-        texts.setSpacing(20);
-        TextField logName = new TextField();
-        PasswordField pWord = new PasswordField();
-        Label header = new Label("Study Calculator pro 3000");
-        Label askPWord = new Label("Password");
-        Label askLogin = new Label("Log in");
-        Label erText = new Label("");
-        texts.getChildren().addAll(header, askLogin, logName, askPWord, pWord, erText);
-
+    });
         
-        buttons.setSpacing(20);
-        Button logIn = new Button("Log in");
-        Button createAcc = new Button("Create a new account");
-        buttons.getChildren().add(logIn);
-        buttons.getChildren().add(createAcc);
-
+        createnewAcc.setCenter(cAcTexts);
+        createnewAcc.setBottom(newaccbuttons);
+        newA = new Scene(createnewAcc);
+        // logged in
         
-//laitetaan nappi skulaa
+        //laitetaan nappi skulaa
         logIn.setOnAction((event) -> {
             
             if (2>3) {
@@ -174,21 +179,20 @@ private Service serv;
                 return;
             }
             if (serv.login(askLogin.getText())) {
-            welcome(window, serv.getLoggedAcc());
+            window.setScene(logged);
             }
         });
 //laitetaa toka nappi skulaa
         createAcc.setOnAction((event) -> {
             
-            crtAcc(window);
+            window.setScene(newA);
         });
-//roska käyntiin
-        set.setCenter(texts);
-        set.setBottom(buttons);
-        Scene start = new Scene(set);
-        window.setScene(start);
-
-        window.show();
     }
+
+    public static void main(String[] args) {
+        launch(ui.class);
+    }
+    
+
 
 }
