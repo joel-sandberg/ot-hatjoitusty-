@@ -1,5 +1,5 @@
 # Studies App
-Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa on tarkoitus voida olla usempi käyttäjä. Tällä hetkellä ainoa toimiva käyttäjänimi on admin ja salasana 123, uusia käyttäjiä voi nyt luoda ja uuden käyttäjän luominen vie suoraan ikkunaan jossa olet kirjautuneena sisään kyseisenä käyttäjänä. En saa itse omalla tietokoneella luotua .jar tiedostoa auki, mutta ohjelman saa toimimaan ainakin netbeansin vihreästä napista.
+Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa voi olla usempi käyttäjä. Luotuasi käyttäjän sovellukseen voit lisäillä kursseja eri opintopistemäärillä ja eri arvosanoilla. Sovellus laskee arvosanoista keskiarvon ja kertoo riittävätkö opintopistemääräsi kandidaatin- tai maisterintutkintoon. En saa itse omalla tietokoneella luotua .jar tiedostoa auki, mutta ohjelman saa toimimaan ainakin netbeansin vihreästä napista.
 
 Checkstylen voit suorittaa komennolla mvn jxr:jxr checkstyle:checkstyle. Testikattavuuden taas komennolla mvn jacoco:report. 
 
