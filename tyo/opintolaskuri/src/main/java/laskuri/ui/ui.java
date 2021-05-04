@@ -170,15 +170,15 @@ private Scene newA;
         //laitetaan nappi skulaa
         logIn.setOnAction((event) -> {
             
-            if (2>3) {
+            if (!serv.login(logName.getText())) {
                 erText.setText("This account does not exist.");
                 return;
             }
-            if (askLogin.getText() == null) {
+            if (logName.getText() == null) {
                 erText.setText("Unknown password.");
                 return;
             }
-            if (serv.login(askLogin.getText())) {
+            if (serv.login(logName.getText())) {
             window.setScene(logged);
             }
         });
