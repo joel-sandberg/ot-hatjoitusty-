@@ -10,5 +10,6 @@ Checkstylen voit suorittaa komennolla mvn jxr:jxr checkstyle:checkstyle. Testika
 * [Arkkitehtuuri](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/arkkitehtuuri.md)
 ## Itse sovellus
 [Studies App](https://github.com/joel-sandberg/ot-hatjoitusty-/tree/master/tyo/opintolaskuri)
-## Viikon 5 release
-[Release](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/viikko5)
+## Releaset
+[Viikko 6](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/viikko6)
+[Viikko 5](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/viikko5)
