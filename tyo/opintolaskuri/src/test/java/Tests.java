@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import dao.AccountDao;
 import dao.FileAccountDao;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -24,6 +24,7 @@ import laskuri.account;
 public class Tests {
     account test;
     private Service serv;
+    private AccountDao dao;
     public Tests() {
         
     }
