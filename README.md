@@ -8,6 +8,7 @@ Checkstylen voit suorittaa komennolla mvn jxr:jxr checkstyle:checkstyle. Testika
 * [Alustava määrittely](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/alustavamaarittely.md)
 * [Työaikakirjanpito](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/ty%C3%B6aikakirjanpito.md)
 * [Arkkitehtuuri](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/arkkitehtuuri.md)
+* [Alustava käyttöohje](https://github.com/joel-sandberg/ot-hatjoitusty-/blob/master/dokumentaatio/k%C3%A4ytt%C3%B6ohje.md)
 ## Itse sovellus
 [Studies App](https://github.com/joel-sandberg/ot-hatjoitusty-/tree/master/tyo/opintolaskuri)
 ## Releaset
