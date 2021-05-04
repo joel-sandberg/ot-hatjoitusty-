@@ -16,5 +16,8 @@ Sovelluksen loogisen datamallin tällä hetkellä muodostaa luokka account, joka
 
 Toiminnallisuutta tuo luokka Service. Luokka tuo erilaisia metodeja kuten sisään- ja uloskirjautumisen. 
 
+![image](https://user-images.githubusercontent.com/62245568/117037573-4e050a80-ad0f-11eb-8500-918c642a8f11.png)
+
+
 ## Tietojen pysyväistallennus
 Sovellukseen psytyy tallentamaan käyttäjiä ja näiden opintopisteet, sekä keskiarvot pysyvät muistissa. Nämä tallentuvat tekstitiedostoon accounts.txt. Tällä hetkellä tosin avattaessa sovellus uudestaan, tyhjenee koko accounts.txt tiedosto. 
