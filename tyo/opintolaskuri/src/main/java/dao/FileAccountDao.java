@@ -17,7 +17,11 @@ import laskuri.account;
 public class FileAccountDao implements AccountDao {
     private ArrayList<account> accounts;
     private String file;
-    
+    /**
+     * Konstruktori accountdaolle
+     * @param file
+     * @throws Exception 
+     */
     public FileAccountDao(String file) throws Exception {
         this.accounts = new ArrayList<>();
         this.file = file;
@@ -41,10 +45,19 @@ public class FileAccountDao implements AccountDao {
             }
         }
     }
+    /**
+     * Tulostaa kaikki accountit
+     * @return 
+     */
     @Override
     public ArrayList<account> getAll() {
         return accounts;
     }
+    /**
+     * Tarkistaa löytyykö kyseistä accountia järjestelmästä
+     * @param name
+     * @return 
+     */
     @Override
     public account findName(String name) {
         return accounts.stream()
@@ -53,12 +66,23 @@ public class FileAccountDao implements AccountDao {
             .findFirst()
             .orElse(null);
     }
+    /**
+     * Luo accountin muistiin
+     * @param acc
+     * @return
+     * @throws Exception 
+     */
      @Override
     public account make(account acc) throws Exception {
         accounts.add(acc);
         save();
         return acc;
     }  
+    /**
+     * Tallentaa nykyiset tiedot
+     * @param accList
+     * @throws Exception 
+     */
     @Override
     public void synToFile(ArrayList<account> accList) throws Exception {
         if (accList == null) {
@@ -68,17 +92,6 @@ public class FileAccountDao implements AccountDao {
     }
     
     
-    @Override
-    public account update(account acc) throws Exception {
-        for (account a : accounts) {
-            if(a.getName().equals(acc.getName())) {
-                a.addCredit(acc.getCredit(), acc.getAvr());
-            }
-        }
-        
-        save();
-        
-        return acc;
-        } 
+   
     }
 

@@ -15,6 +15,5 @@ public interface AccountDao {
     account make(account acc) throws Exception;
     account findName(String name);
     ArrayList<account> getAll();
-    account update(account acc) throws Exception;
     void synToFile(ArrayList<account> accList)throws Exception;
 }
