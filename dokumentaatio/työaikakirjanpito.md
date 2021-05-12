@@ -12,4 +12,5 @@
 |4.5.|4h|ui:n muokkailua ja kirjanpitelyä|
 |12.5.|2h|muokkailin fontteja ja ulkoasua|
 |12.5.|1h|yritin lisätä äänet sovellukseen, mutta luovutin|
-|Yht.|42h| |
+|12.5.|0,5h|sain äänet toimimaan|
+|Yht.|42,5h| |
