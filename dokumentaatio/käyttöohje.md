@@ -6,7 +6,7 @@ Ohjelman käynnistys pitäisi onnistua komennolla java -jar opintolaskuri-1.0-SN
 ## Kirjautuminen
 Ohjelma käynnistyy kirjautumisnäkymään, mutta koska käyttäjiä ei ole vielä olemassa täytyy käyttäjän luoda uusi käyttäjä "create new user"-napilla. Tämän jälkeen kirjautumisen pitäisi onnistua luodulla käyttäjällä kunhan ohjelmaa ei suljeta välissä. 
 ## Uuden käyttäjän luominen 
-Anna kenttiin käyttäjänimesi ja haluamasi salasana. Paina tämän jälkeen "create"-nappia. 
+Anna kenttiin käyttäjänimesi ja haluamasi salasana. Paina tämän jälkeen "create"-nappia. Uuden käyttäjänimen ja salasanan täytyy olla yli kolme merkkiä pitkiä. 
 ## Kurssien suoritetuksi merkitseminen
 Anna kenttiin seuraavat tiedot
 * Kurssin nimi
