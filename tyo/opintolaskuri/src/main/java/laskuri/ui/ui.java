@@ -26,7 +26,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.scene.text.FontWeight;
 import javafx.scene.media.*;
-
+import java.io.File;
 public class ui extends Application {
 VBox texts = new VBox();
 HBox buttons = new HBox();
@@ -45,8 +45,8 @@ private MediaPlayer mPlayer;
         FileAccountDao accDao = new FileAccountDao(accFile);
         serv = new Service(accDao);
         
-        String sound = properties.getProperty("sound");
-        Media click = new Media(sound);
+        String sound = properties.getProperty("click");
+        Media click = new Media(new File(sound).toURI().toString());
         mPlayer = new MediaPlayer(click);
     }
     @Override
@@ -176,6 +176,7 @@ private MediaPlayer mPlayer;
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((e) -> {
+            mPlayer.play();
             if (!newCredit.getText().matches("[0-9]+") && !grade.getText().matches("[0-9]+")) {
             grade.setText("");
             newCredit.setText(""); 
@@ -202,6 +203,7 @@ private MediaPlayer mPlayer;
             compC.setWrapText(true);
         });
          logout.setOnAction((s) -> {
+        mPlayer.play();
         serv.logout();
         window.setScene(login);
         
@@ -221,7 +223,7 @@ private MediaPlayer mPlayer;
         newA = new Scene(createnewAcc);
         
         logIn.setOnAction((event) -> {
-            
+            mPlayer.play();
             if (!serv.login(logName.getText())) {
                 erText.setText("This account does not exist.");
                 
@@ -237,7 +239,7 @@ private MediaPlayer mPlayer;
         });
 
         createAcc.setOnAction((event) -> {
-            
+            mPlayer.play();
             window.setScene(newA);
         });
     }
