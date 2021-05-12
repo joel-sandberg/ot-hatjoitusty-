@@ -10,8 +10,8 @@ Anna kenttiin käyttäjänimesi ja haluamasi salasana. Paina tämän jälkeen "c
 ## Kurssien suoritetuksi merkitseminen
 Anna kenttiin seuraavat tiedot
 * Kurssin nimi
-* Saamasi opintopisteet 
-* Saamasi arvosana 
+* Saamasi opintopisteet numerona
+* Saamasi arvosana numerona
 
 ### Logout
 "logout"-nappi vie takaisin alkunäkymään. 
