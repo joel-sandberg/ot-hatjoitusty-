@@ -16,4 +16,4 @@ Alkuvaiheessa sovelluksella on ainoastaan normaali käyttäjä. Myöhemmin saata
 ## Jatkokehitysideoita
 - [ ] Piirakkachart mistä näkee prosentuaalisesti opintojen vaiheen
 - [ ] Sovellus myydään Microsoftille
-- [ ] Kehitetään sovellukseen oma fontti joka ylittää kauneudessaan Comic Sans MS:n
+- [ ] Kehitetään sovellukseen oma fontti, joka ylittää kauneudessaan Comic Sans MS:n
