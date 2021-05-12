@@ -5,16 +5,13 @@
  */
 package laskuri.ui;
 
-import java.io.*;
-import java.util.*;
+import javafx.scene.media.*;
 import java.io.FileInputStream;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.stage.*;
 import javafx.scene.text.Font;
 import javafx.scene.effect.InnerShadow;
-import javafx.scene.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -23,8 +20,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.geometry.Pos;
 import laskuri.account;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import laskuri.Service;
 import dao.FileAccountDao;
 import java.util.Properties;
@@ -40,7 +35,7 @@ private Service serv;
 private Scene logged;
 private Scene login;
 private Scene newA;
-
+private MediaPlayer mPlayer;
  @Override
     public void init() throws Exception {
         Properties properties = new Properties();
@@ -49,6 +44,11 @@ private Scene newA;
         String accFile = properties.getProperty("accFile");
         FileAccountDao accDao = new FileAccountDao(accFile);
         serv = new Service(accDao);
+        
+        String sound = properties.getProperty("Click2.mp3");
+        Media click = new Media(sound);
+        mPlayer = new MediaPlayer(click);
+        
     }
     @Override
     public void start(Stage window)  {
@@ -125,6 +125,7 @@ private Scene newA;
         newaccbuttons.getChildren().add(create);
         
         create.setOnAction((event)-> {
+            mPlayer.play();
             String name = newName.getText();
             String pass = newpWord.getText();
             if (name.length() < 3 | pass.length() < 3) {
