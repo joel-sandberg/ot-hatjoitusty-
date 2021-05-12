@@ -13,6 +13,7 @@ Alkuvaiheessa sovelluksella on ainoastaan normaali käyttäjä. Myöhemmin saata
 - [x] Käyttäjä näkee kurssiensa keskiarvon
 - [x] Käyttäjä voi kirjautua ulos
 - [x] Käyttäjä näkee keskiarvonsa
+- [x] Nappien painalluksesta kuuluu ääni
 ## Jatkokehitysideoita
 - [ ] Piirakkachart mistä näkee prosentuaalisesti opintojen vaiheen
 - [ ] Sovellus myydään Microsoftille
