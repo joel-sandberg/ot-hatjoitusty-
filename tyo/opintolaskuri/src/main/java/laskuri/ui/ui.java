@@ -35,7 +35,7 @@ private Service serv;
 private Scene logged;
 private Scene login;
 private Scene newA;
-private MediaPlayer mPlayer;
+private AudioClip click;
  @Override
     public void init() throws Exception {
         Properties properties = new Properties();
@@ -46,8 +46,8 @@ private MediaPlayer mPlayer;
         serv = new Service(accDao);
         
         String sound = properties.getProperty("click");
-        Media click = new Media(new File(sound).toURI().toString());
-        mPlayer = new MediaPlayer(click);
+        click = new AudioClip(new File(sound).toURI().toString());
+        
     }
     @Override
     public void start(Stage window)  {
@@ -124,7 +124,7 @@ private MediaPlayer mPlayer;
         newaccbuttons.getChildren().add(create);
         
         create.setOnAction((event)-> {
-            mPlayer.play();
+            click.play();
             String name = newName.getText();
             String pass = newpWord.getText();
             if (name.length() < 3 | pass.length() < 3) {
@@ -176,7 +176,7 @@ private MediaPlayer mPlayer;
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((e) -> {
-            mPlayer.play();
+            click.play();
             if (!newCredit.getText().matches("[0-9]+") && !grade.getText().matches("[0-9]+")) {
             grade.setText("");
             newCredit.setText(""); 
@@ -203,7 +203,7 @@ private MediaPlayer mPlayer;
             compC.setWrapText(true);
         });
          logout.setOnAction((s) -> {
-        mPlayer.play();
+        click.play();
         serv.logout();
         window.setScene(login);
         
@@ -223,7 +223,7 @@ private MediaPlayer mPlayer;
         newA = new Scene(createnewAcc);
         
         logIn.setOnAction((event) -> {
-            mPlayer.play();
+            click.play();
             if (!serv.login(logName.getText())) {
                 erText.setText("This account does not exist.");
                 
@@ -239,7 +239,7 @@ private MediaPlayer mPlayer;
         });
 
         createAcc.setOnAction((event) -> {
-            mPlayer.play();
+            click.play();
             window.setScene(newA);
         });
     }
