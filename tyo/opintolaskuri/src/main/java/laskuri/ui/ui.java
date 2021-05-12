@@ -12,7 +12,8 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.stage.*;
-import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.*;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
@@ -27,6 +28,9 @@ import java.util.regex.Pattern;
 import laskuri.Service;
 import dao.FileAccountDao;
 import java.util.Properties;
+import javafx.scene.paint.Color;
+import javafx.scene.Scene;
+import javafx.scene.text.FontWeight;
 
 public class ui extends Application {
 VBox texts = new VBox();
@@ -56,17 +60,30 @@ private Scene newA;
         
         texts.setSpacing(20);
         TextField logName = new TextField();
+        logName.setFont(Font.font("Comic Sans MS", 15));
         PasswordField pWord = new PasswordField();
+        InnerShadow is = new InnerShadow();
+        is.setOffsetX(4.0f);
+        is.setOffsetY(4.0f);
         Label header = new Label("Study Calculator pro 3000");
+        header.setEffect(is);       
+        header.setTextFill(Color.LIME);
+        header.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 40));
         Label askPWord = new Label("Password");
+        askPWord.setFont(Font.font("Comic Sans MS", 20));
         Label askLogin = new Label("Log in");
+        askLogin.setFont(Font.font("Comic Sans MS", 20));
         Label erText = new Label("");
+        erText.setFont(Font.font("Comic Sans MS", 20));
+        erText.setTextFill(Color.RED);
         texts.getChildren().addAll(header, askLogin, logName, askPWord, pWord, erText);
 
         
         buttons.setSpacing(20);
         Button logIn = new Button("Log in");
         Button createAcc = new Button("Create a new account");
+        logIn.setFont(Font.font("Comic Sans MS", 15));
+        createAcc.setFont(Font.font("Comic Sans MS", 15));
         buttons.getChildren().add(logIn);
         buttons.getChildren().add(createAcc);
 
@@ -85,17 +102,26 @@ private Scene newA;
 
         VBox cAcTexts = new VBox();
         cAcTexts.setSpacing(20);
+        Label nheader2 = new Label("Study Calculator pro 3000");
+        nheader2.setEffect(is);       
+        nheader2.setTextFill(Color.LIME);
+        nheader2.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 40));
         TextField newName = new TextField();
+        newName.setFont(Font.font("Comic Sans MS", 15));
         PasswordField newpWord = new PasswordField();
         Label nAheader = new Label("Creating an account");
+        nAheader.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 30));
+
         Label asknewPWord = new Label("Type your password");
+        asknewPWord.setFont(Font.font("Comic Sans MS", 20));
         Label asknewLogin = new Label("Type your log in name");
-       
-        cAcTexts.getChildren().addAll(nAheader, asknewLogin, newName, asknewPWord, newpWord);
+        asknewLogin.setFont(Font.font("Comic Sans MS", 20));
+        cAcTexts.getChildren().addAll(nheader2, nAheader, asknewLogin, newName, asknewPWord, newpWord);
 
         HBox newaccbuttons = new HBox();
         buttons.setSpacing(20);
         Button create = new Button("Create");
+        create.setFont(Font.font("Comic Sans MS", 15));
         newaccbuttons.getChildren().add(create);
         
         create.setOnAction((event)-> {
@@ -103,31 +129,50 @@ private Scene newA;
             String pass = newpWord.getText();
             if (name.length() < 3 | pass.length() < 3) {
                 nAheader.setText("Name or password not acceptable");
+                nAheader.setTextFill(Color.RED);
             } else if (serv.crtAccount(name, pass)) {
                 
             serv.login(name);
             this.acc = serv.getLoggedAcc();
             if (this.acc != null) {
+        Label nheader = new Label("Study Calculator pro 3000");
+        nheader.setEffect(is);       
+        nheader.setTextFill(Color.LIME);
+        nheader.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, 40));
         Label welcomeText = new Label("Welcome, " + acc.getName() + "!");
-        
+        welcomeText.setFont(Font.font("Comic Sans MS", 25));
         Label credits = new Label("Your current credits: " + acc.getCredit());
+        credits.setFont(Font.font("Comic Sans MS", 20));
         Label untilBc = new Label("Credits until bachelor: " + (180 - acc.getCredit()));
+        untilBc.setFont(Font.font("Comic Sans MS", 20));
         Label untilMs = new Label("Credits until masters: " + (360 - acc.getCredit()));
+        untilMs.setFont(Font.font("Comic Sans MS", 20));
         Label nConame = new Label("Name of completed course :");
+        nConame.setFont(Font.font("Comic Sans MS", 15));
         TextField newCourse = new TextField();
+        newCourse.setFont(Font.font("Comic Sans MS", 15));
         Label askG = new Label("Grade for completed course: ");
+        askG.setFont(Font.font("Comic Sans MS", 15));
         TextField grade = new TextField();
+        grade.setFont(Font.font("Comic Sans MS", 15));
         Label nCoamount = new Label("Amount of credits for completed course: ");
+        nCoamount.setFont(Font.font("Comic Sans MS", 15));
         TextField newCredit = new TextField();
+        newCredit.setFont(Font.font("Comic Sans MS", 15));
         Button addnewCredits = new Button("Add completed course");
+        addnewCredits.setFont(Font.font("Comic Sans MS", 15));
         Label comp = new Label("Courses you have completed:");
+        comp.setFont(Font.font("Comic Sans MS", 10));
         Label compC = new Label("");
+        compC.setFont(Font.font("Comic Sans MS", 10));
         Label avg = new Label("Current average grade: " + acc.getAvr());
+        avg.setFont(Font.font("Comic Sans MS", 15));
         Button logout = new Button("Log out");
+        logout.setFont(Font.font("Comic Sans MS", 15));
         VBox welcomeSet = new VBox();
         welcomeSet.setPrefSize(300, 180);
         
-        welcomeSet.getChildren().addAll(welcomeText, credits, untilBc, untilMs, nConame, newCourse, askG, grade, nCoamount, newCredit, addnewCredits, avg, comp, compC, logout);
+        welcomeSet.getChildren().addAll(nheader, welcomeText, credits, untilBc, untilMs, nConame, newCourse, askG, grade, nCoamount, newCredit, addnewCredits, avg, comp, compC, logout);
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((e) -> {
@@ -135,6 +180,7 @@ private Scene newA;
             grade.setText("");
             newCredit.setText(""); 
             welcomeText.setText("Invalid credit or grade!");
+            welcomeText.setTextFill(Color.RED);
             return;
             }
             int add = Integer.parseInt(newCredit.getText());
@@ -146,6 +192,7 @@ private Scene newA;
             newCredit.setText("");
             newCourse.setText("");
             welcomeText.setText("Course added successfully.");
+            welcomeText.setTextFill(Color.GREEN);
             credits.setText("Your current credits: " + acc.getCredit());
             untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
             untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
@@ -177,6 +224,7 @@ private Scene newA;
             
             if (!serv.login(logName.getText())) {
                 erText.setText("This account does not exist.");
+                
                 return;
             }
             if (logName.getText() == null) {
