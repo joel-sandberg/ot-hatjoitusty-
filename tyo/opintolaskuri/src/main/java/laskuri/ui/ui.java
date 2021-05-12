@@ -131,14 +131,21 @@ private Scene newA;
         welcomeSet.setAlignment(Pos.TOP_CENTER);
 
          addnewCredits.setOnAction((e) -> {
-             
+            if (!newCredit.getText().matches("[0-9]+") && !grade.getText().matches("[0-9]+")) {
+            grade.setText("");
+            newCredit.setText(""); 
+            welcomeText.setText("Invalid credit or grade!");
+            return;
+            }
             int add = Integer.parseInt(newCredit.getText());
             int addG = Integer.parseInt(grade.getText());
+           
             acc.addCredit(add, addG);
             String text = newCourse.getText();
             grade.setText("");
             newCredit.setText("");
             newCourse.setText("");
+            welcomeText.setText("Course added successfully.");
             credits.setText("Your current credits: " + acc.getCredit());
             untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
             untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
@@ -165,9 +172,7 @@ private Scene newA;
         createnewAcc.setCenter(cAcTexts);
         createnewAcc.setBottom(newaccbuttons);
         newA = new Scene(createnewAcc);
-        // logged in
         
-        //laitetaan nappi skulaa
         logIn.setOnAction((event) -> {
             
             if (!serv.login(logName.getText())) {
