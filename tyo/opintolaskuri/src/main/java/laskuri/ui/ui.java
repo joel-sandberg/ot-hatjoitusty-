@@ -25,6 +25,7 @@ import java.util.Properties;
 import javafx.scene.paint.Color;
 import javafx.scene.Scene;
 import javafx.scene.text.FontWeight;
+import javafx.scene.media.*;
 
 public class ui extends Application {
 VBox texts = new VBox();
@@ -34,6 +35,7 @@ private Service serv;
 private Scene logged;
 private Scene login;
 private Scene newA;
+private MediaPlayer mPlayer;
  @Override
     public void init() throws Exception {
         Properties properties = new Properties();
@@ -43,13 +45,15 @@ private Scene newA;
         FileAccountDao accDao = new FileAccountDao(accFile);
         serv = new Service(accDao);
         
-        
+        String sound = properties.getProperty("sound");
+        Media click = new Media(sound);
+        mPlayer = new MediaPlayer(click);
     }
     @Override
     public void start(Stage window)  {
         
         window.setTitle("Studies");
-//luodaan alkuikkunan asetukset
+
         BorderPane set = new BorderPane();
 
         
@@ -84,7 +88,7 @@ private Scene newA;
 
         
 
-//roska käyntiin
+
         set.setCenter(texts);
         set.setBottom(buttons);
         login = new Scene(set);
@@ -92,7 +96,7 @@ private Scene newA;
 
         window.show();
         
-        //crtAcc
+     
         BorderPane createnewAcc = new BorderPane();
 
         VBox cAcTexts = new VBox();
@@ -231,7 +235,7 @@ private Scene newA;
             window.setScene(logged);
             }
         });
-//laitetaa toka nappi skulaa
+
         createAcc.setOnAction((event) -> {
             
             window.setScene(newA);
