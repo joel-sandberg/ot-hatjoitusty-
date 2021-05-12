@@ -1,6 +1,6 @@
 # Käyttöohje
 ## Konfiguraatio
-Ohjelma odottaa tiedostoa config.properties. Tämä määrittelee accounts.txt tallennustiedoston. 
+Ohjelma odottaa tiedostoa config.properties. Tämä määrittelee accounts.txt tallennustiedoston, sekä audiopätkän napinpainalluksille. Pidä äänet päällä saadaksesi täyden kokemuksen. 
 ## Ohjelman käynnistäminen
 Ohjelman käynnistys pitäisi onnistua komennolla java -jar opintolaskuri-1.0-SNAPSHOT.jar, en tosin saa tätä toimimaan omalla koneellani. Ohjelman käynnistys onnistuu vähintäänkin netbeansin vihreällä napilla. 
 ## Kirjautuminen
