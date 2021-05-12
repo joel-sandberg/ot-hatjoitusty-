@@ -5,7 +5,6 @@
  */
 package laskuri.ui;
 
-import javafx.scene.media.*;
 import java.io.FileInputStream;
 import javafx.application.Application;
 import javafx.scene.control.Button;
@@ -35,7 +34,6 @@ private Service serv;
 private Scene logged;
 private Scene login;
 private Scene newA;
-private MediaPlayer mPlayer;
  @Override
     public void init() throws Exception {
         Properties properties = new Properties();
@@ -45,9 +43,6 @@ private MediaPlayer mPlayer;
         FileAccountDao accDao = new FileAccountDao(accFile);
         serv = new Service(accDao);
         
-        String sound = properties.getProperty("Click2.mp3");
-        Media click = new Media(sound);
-        mPlayer = new MediaPlayer(click);
         
     }
     @Override
