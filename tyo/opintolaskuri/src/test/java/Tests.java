@@ -9,22 +9,29 @@ import java.io.FileInputStream;
 import java.util.Properties;
 import laskuri.Service;
 import laskuri.laskeMain;
+import java.io.File;
+import java.io.FileWriter;
+import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import laskuri.ui.ui;
 import laskuri.account;
+import org.junit.Rule;
+import org.junit.rules.TemporaryFolder;
 /**
  *
  * @author Kuningas
  */
 public class Tests {
+    @Rule
+    public TemporaryFolder tempFold = new TemporaryFolder();
+    
     account test;
-    private Service serv;
-    private AccountDao dao;
+    File file;
+    AccountDao dao;
     public Tests() {
         
     }
@@ -38,23 +45,39 @@ public class Tests {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws Exception {
+        file = tempFold.newFile("test_accounts.txt");
+        try (FileWriter tryFile = new FileWriter(file.getAbsolutePath())) {
+            tryFile.write("testName;testPass;0;0.0\n");
+        }
+        
+        dao = new FileAccountDao(file.getAbsolutePath());
         
         String jari = "jari";
-         String password = "password";
-         test = new account(jari, password);
+        String password = "password";
+        test = new account(jari, password);
     }
     
     @After
     public void tearDown() {
+        file.delete();
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-     @Test
-     public void hello() {
+    @Test
+     public void correctSizeAccounts() {
+     List<account> accs = dao.getAll();
+     assertEquals(1, accs.size());
+     }
      
+     @Test
+     public void canFindAccount() {
+     account account = dao.findName("testName");
+     assertEquals("testName",account.getName());
+     }
+     @Test
+     public void cannotFindAccount() {
+     account account = dao.findName("pimppi");
+     assertEquals(null,account);
      }
      @Test
      public void createAccName() {

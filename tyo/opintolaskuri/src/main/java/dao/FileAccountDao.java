@@ -23,13 +23,13 @@ public class FileAccountDao implements AccountDao {
      * @throws Exception 
      */
     public FileAccountDao(String file) throws Exception {
-        this.accounts = new ArrayList<>();
+        accounts = new ArrayList<>();
         this.file = file;
         try {
             Scanner r = new Scanner(new File(file));
             while (r.hasNextLine()) {
                 String[] p = r.nextLine().split(";");
-                account n = new account(p[0],p[1],Integer.valueOf(p[2]),Integer.valueOf(p[3]));
+                account n = new account(p[0],p[1],Integer.valueOf(p[2]),Double.valueOf(p[3]));
                 
                 accounts.add(n);
             }
@@ -61,7 +61,7 @@ public class FileAccountDao implements AccountDao {
     @Override
     public account findName(String name) {
         return accounts.stream()
-            .filter(u->u.getName()
+            .filter(a->a.getName()
             .equals(name))
             .findFirst()
             .orElse(null);

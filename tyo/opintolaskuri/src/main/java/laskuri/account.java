@@ -23,7 +23,7 @@ public class account {
      * @param credit
      * @param avr 
      */
-    public account(String name, String password, int credit, int avr) {
+    public account(String name, String password, int credit, double avr) {
         this.name = name;
         this.password = password;
         this.credit = credit;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="10" failures="0" name="Tests" time="0.004" errors="0" skipped="0">
+<testsuite tests="12" failures="0" name="Tests" time="0.357" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_291\jre\bin"/>
@@ -62,14 +62,16 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="Tests" name="createAccHasBc" time="0.004"/>
-  <testcase classname="Tests" name="createAccHasMs" time="0"/>
-  <testcase classname="Tests" name="createAccAddCredit" time="0"/>
-  <testcase classname="Tests" name="createAccAddAlotCredit" time="0"/>
-  <testcase classname="Tests" name="hello" time="0"/>
-  <testcase classname="Tests" name="createAccName" time="0"/>
-  <testcase classname="Tests" name="createAccPass" time="0"/>
-  <testcase classname="Tests" name="createAccStartCredit" time="0"/>
-  <testcase classname="Tests" name="createAccHasNotBc" time="0"/>
-  <testcase classname="Tests" name="createAccHasNotMs" time="0"/>
+  <testcase classname="Tests" name="cannotFindAccount" time="0.261"/>
+  <testcase classname="Tests" name="createAccHasBc" time="0.012"/>
+  <testcase classname="Tests" name="createAccHasMs" time="0.017"/>
+  <testcase classname="Tests" name="createAccAddCredit" time="0.019"/>
+  <testcase classname="Tests" name="createAccAddAlotCredit" time="0.008"/>
+  <testcase classname="Tests" name="correctSizeAccounts" time="0.012"/>
+  <testcase classname="Tests" name="createAccName" time="0.004"/>
+  <testcase classname="Tests" name="createAccPass" time="0.004"/>
+  <testcase classname="Tests" name="canFindAccount" time="0.003"/>
+  <testcase classname="Tests" name="createAccStartCredit" time="0.003"/>
+  <testcase classname="Tests" name="createAccHasNotBc" time="0.009"/>
+  <testcase classname="Tests" name="createAccHasNotMs" time="0.005"/>
 </testsuite>
