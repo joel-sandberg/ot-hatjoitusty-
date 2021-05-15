@@ -198,7 +198,7 @@ private AudioClip click;
             untilBc.setText("Credits until bachelor: " + (180 - acc.getCredit()));
             untilMs.setText("Credits until masters: " + (360 - acc.getCredit()));
             avg.setText(("Current average grade: " + acc.getAvr()));
-            compC.setText(compC.getText() + " " + text + ", " + add + " credits, grade: " + addG + ";");
+            compC.setText(compC.getText() + " \n" + text + ", " + add + " credits, grade: " + addG + ";");
             compC.setPrefWidth(250);
             compC.setWrapText(true);
         });
