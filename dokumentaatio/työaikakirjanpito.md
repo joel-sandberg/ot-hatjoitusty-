@@ -14,4 +14,5 @@
 |12.5.|1h|yritin lisätä äänet sovellukseen, mutta luovutin|
 |12.5.|0,5h|sain äänet toimimaan|
 |15.5.|2h|tallennuksen korjaus + pientä säätöä|
-|Yht.|44,5h| |
+|16.5.|0,5h|viimeistely|
+|Yht.|45h| |
