@@ -20,4 +20,4 @@ Toiminnallisuutta tuo luokka Service. Luokka tuo erilaisia metodeja kuten sisä�
 
 
 ## Tietojen pysyväistallennus
-Sovellukseen psytyy tallentamaan käyttäjiä ja näiden opintopisteet, sekä keskiarvot pysyvät muistissa. Nämä tallentuvat tekstitiedostoon accounts.txt. Tällä hetkellä tosin avattaessa sovellus uudestaan, tyhjenee koko accounts.txt tiedosto. 
+Sovellukseen psytyy tallentamaan käyttäjiä ja näiden opintopisteet, sekä keskiarvot pysyvät muistissa. Nämä tallentuvat tekstitiedostoon accounts.txt. 
