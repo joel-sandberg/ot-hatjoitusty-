@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package laskuri.ui;
 
 import java.io.FileInputStream;
@@ -177,7 +173,7 @@ private AudioClip click;
 
          addnewCredits.setOnAction((e) -> {
             click.play();
-            if (!newCredit.getText().matches("[0-9]+") && !grade.getText().matches("[0-9]+")) {
+            if (!newCredit.getText().matches("[0-9]+") | !grade.getText().matches("[0-9]+")) {
             grade.setText("");
             newCredit.setText(""); 
             welcomeText.setText("Invalid credit or grade!");
@@ -235,6 +231,7 @@ private AudioClip click;
             }
             if (serv.login(logName.getText())) {
             window.setScene(logged);
+            this.acc = serv.getLoggedAcc();
             }
         });
 

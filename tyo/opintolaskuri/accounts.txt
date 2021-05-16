@@ -1,1 +1,2 @@
-adf;aff;40;19.0
+asda;asda;4;3.0
+asde;asde;0;0.0
