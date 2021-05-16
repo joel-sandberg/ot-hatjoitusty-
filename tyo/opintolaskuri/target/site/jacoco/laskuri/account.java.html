@@ -1,8 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">opintolaskuri</a> &gt; <a href="index.source.html" class="el_package">laskuri</a> &gt; <span class="el_source">account.java</span></div><h1>account.java</h1><pre class="source lang-java linenums">/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>account.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">opintolaskuri</a> &gt; <a href="index.source.html" class="el_package">laskuri</a> &gt; <span class="el_source">account.java</span></div><h1>account.java</h1><pre class="source lang-java linenums">
 package laskuri;
 
 /**
@@ -13,34 +9,98 @@ public class account {
     private int credit;
     private String name;
     private String password;
-<span class="fc" id="L16">    public account(String name, String password) {</span>
-<span class="fc" id="L17">        this.name = name;</span>
-<span class="fc" id="L18">        this.password = password;</span>
-<span class="fc" id="L19">        this.credit = 0;</span>
-<span class="fc" id="L20">    }</span>
-    public void addCredit(int add) {
-<span class="fc" id="L22">        this.credit += add;</span>
-<span class="fc" id="L23">    }</span>
+    private int amount;
+    private double graTot;
+    private double avr;
+    /**
+     * Konstruktori accounteille
+     * @param name
+     * @param password
+     * @param credit
+     * @param avr 
+     */
+    public account(String name, String password, int credit, double avr) {
+        this.name = name;
+        this.password = password;
+        this.credit = credit;
+<span class="fc" id="L26">        this.amount = 0;</span>
+<span class="fc" id="L27">        this.graTot = 0;</span>
+<span class="fc" id="L28">        this.avr = avr;</span>
+<span class="fc" id="L29">    }</span>
+<span class="fc" id="L30">    /**</span>
+<span class="fc" id="L31">     * alternatiivinen konstruktori accounteille</span>
+<span class="fc" id="L32">     * @param name</span>
+<span class="fc" id="L33">     * @param password </span>
+     */
+    public account(String name, String password) {
+        this.name = name;
+        this.password = password;
+        this.credit = 0;
+<span class="fc" id="L39">        this.amount = 0;</span>
+<span class="fc" id="L40">        this.graTot = 0;</span>
+<span class="fc" id="L41">        this.avr = getAvr();</span>
+<span class="fc" id="L42">    }</span>
+<span class="fc" id="L43">    /**</span>
+<span class="fc" id="L44">     * Lisää opintopisteitä</span>
+<span class="fc" id="L45">     * @param add</span>
+<span class="fc" id="L46">     * @param grade </span>
+     */
+    public void addCredit(int add, double grade) {
+        this.credit += add;
+        this.amount++;
+        this.graTot += grade;
+    }
+<span class="fc" id="L53">    /**</span>
+<span class="fc" id="L54">     * tulostaa kyseisen käyttäjän opintopisteet</span>
+<span class="fc" id="L55">     * @return </span>
+<span class="fc" id="L56">     */</span>
     public int getCredit() {
-<span class="fc" id="L25">        return this.credit;</span>
+        return this.credit;
     }
+    /**
+     * tulostaa kyseisen käyttäjän nimen
+<span class="fc" id="L62">     * @return </span>
+     */
     public String getName() {
-<span class="fc" id="L28">        return this.name;</span>
+        return this.name;
     }
+    /**
+     * tulostaa kyseisen käyttäjän salasanan
+<span class="fc" id="L69">     * @return </span>
+     */
     public String getPass() {
-<span class="fc" id="L31">        return this.password;</span>
+        return this.password;
     }
+    /**
+     * Tulostaa kyseisen käyttäjän arvosanojen keskiarvon
+<span class="fc" id="L76">     * @return </span>
+     */
+    public double getAvr() {
+        if(this.graTot != 0) {
+        return (this.graTot/this.amount);
+        }
+        return 0;
+<span class="pc bpc" id="L83" title="1 of 2 branches missed.">    }</span>
+<span class="nc" id="L84">    /**</span>
+     * Kertoo booleanina onko kyseisellä käyttäjällä maisteriin riittävä määrä opintopisteitä
+<span class="fc" id="L86">     * @return </span>
+     */
     public boolean hasMs() {
-<span class="fc bfc" id="L34" title="All 2 branches covered.">        if (this.credit &gt;= 360) {</span>
-<span class="fc" id="L35">            return true;</span>
+        if (this.credit &gt;= 360) {
+            return true;
         }
-<span class="fc" id="L37">        return false;</span>
-    }
+        return false;
+<span class="fc bfc" id="L93" title="All 2 branches covered.">    }</span>
+<span class="fc" id="L94">    /**</span>
+     * Kertoo booleanina onko kyseisellä käyttäjällä kandiin riittävä määr opintopisteitä
+<span class="fc" id="L96">     * @return </span>
+     */
     public boolean hasBc() {
-<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (this.credit &gt;= 180) {</span>
-<span class="fc" id="L41">            return true;</span>
+        if (this.credit &gt;= 180) {
+            return true;
         }
-<span class="fc" id="L43">        return false;</span>
-    }
+        return false;
+<span class="fc bfc" id="L103" title="All 2 branches covered.">    }</span>
+<span class="fc" id="L104">    </span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
