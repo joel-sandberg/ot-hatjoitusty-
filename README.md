@@ -13,6 +13,7 @@ En saa itse omalla tietokoneella luotua .jar tiedostoa auki, mutta ohjelman saa 
 ## Itse sovellus
 [Studies App](https://github.com/joel-sandberg/ot-hatjoitusty-/tree/master/tyo/opintolaskuri)
 ## Releaset
+* [Loppurelease](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/Loppupalautus)
 * [Viikko 6](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/viikko6)
 * [Viikko 5](https://github.com/joel-sandberg/ot-hatjoitusty-/releases/tag/viikko5)
 
