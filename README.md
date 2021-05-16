@@ -1,5 +1,7 @@
 # Studies App
-Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa voi olla usempi käyttäjä. Luotuasi käyttäjän sovellukseen voit lisäillä kursseja eri opintopistemäärillä ja eri arvosanoilla. Sovellus laskee arvosanoista keskiarvon ja kertoo riittävätkö opintopistemääräsi kandidaatin- tai maisterintutkintoon. Sovelluksen pysyväistallennuksen luomisessa on otettu mallia [referenssisovelluksesta.](https://github.com/mluukkai/OtmTodoApp) En saa itse omalla tietokoneella luotua .jar tiedostoa auki, mutta ohjelman saa toimimaan ainakin netbeansin vihreästä napista.
+Sovelluksen avulla on tarkoitus voida pitää kirjaa opinnoistasi. Sovelluksessa voi olla usempi käyttäjä. Luotuasi käyttäjän sovellukseen voit lisäillä kursseja eri opintopistemäärillä ja eri arvosanoilla. Sovellus laskee arvosanoista keskiarvon ja kertoo riittävätkö opintopistemääräsi kandidaatin- tai maisterintutkintoon. Sovelluksen pysyväistallennuksen luomisessa on otettu mallia [referenssisovelluksesta.](https://github.com/mluukkai/OtmTodoApp)
+
+En saa itse omalla tietokoneella luotua .jar tiedostoa auki, mutta ohjelman saa toimimaan ainakin netbeansin vihreästä napista.
 
 ## Dokumentaatio
 
