@@ -16,4 +16,4 @@
 |15.5.|2h|tallennuksen korjaus + pientä säätöä|
 |16.5.|0,5h|viimeistely|
 |16.|1h|dokumentaation viimeistely|
-|Yht.|45h| |
+|Yht.|46h| |
